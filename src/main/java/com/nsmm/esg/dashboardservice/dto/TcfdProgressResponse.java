@@ -2,9 +2,9 @@ package com.nsmm.esg.dashboardservice.dto;
 
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @Builder
 public class TcfdProgressResponse {
     private int completedCount;

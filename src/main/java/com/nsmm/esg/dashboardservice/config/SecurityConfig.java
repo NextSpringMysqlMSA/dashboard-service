@@ -23,7 +23,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/v1/**").permitAll()
-                        .requestMatchers("/actuator/**").permitAll()    // Actuator 엔드포인트 접근 허용
+                        .requestMatchers("/actuator/health", "/actuator/info").permitAll()
                         .anyRequest().denyAll()
                 );
 

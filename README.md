@@ -1,30 +1,25 @@
 ```mermaid
----
-config:
-      theme: redux
----
 flowchart TD
-start((Start))
+A[Start] --> B[회원 인증 - X-MEMBER-ID 추출]
 
-%% TCFD 진행률 조회
-start --> TCFD[/GET /tcfd/progress/]
-TCFD --> TCFD_MID["extractMemberId()"]
-TCFD_MID --> TCFD_Svc(["dashboardService.getTcfdProgress()"])
-TCFD_Svc --> TCFD_Resp["TcfdProgressResponse 반환"]
-TCFD_Resp --> end1((End))
+%% 요청 유형 분기
+B --> C{요청 유형}
 
-%% GRI 진행률 조회
-start --> GRI[/GET /gri/progress/]
-GRI --> GRI_MID["extractMemberId()"]
-GRI_MID --> GRI_Svc(["dashboardService.getGriProgress()"])
-GRI_Svc --> GRI_Resp["GriProgressResponse 반환"]
-GRI_Resp --> end2((End))
+%% TCFD 진행률
+C --> D1[TCFD 진행률 요청]
+D1 --> E1[internalProgressService.getProgress]
+E1 --> F1[진행률 반환]
+F1 --> Z1((End))
 
-%% NetZero 배출량 진행률 조회
-start --> NetZero[/GET /tcfd/progress/netzero/]
-NetZero --> NZ_MID["extractMemberId()"]
-NZ_MID --> NZ_Svc(["dashboardService.getNetZeroEmissionProgress()"])
-NZ_Svc --> NZ_Resp["NetZeroEmission 리스트 반환"]
-NZ_Resp --> end3((End))
+%% GRI 진행률
+C --> D2[GRI 진행률 요청]
+D2 --> E2[griProgressService.getProgress]
+E2 --> F2[진행률 반환]
+F2 --> Z2((End))
+
+%% NetZero 배출량
+C --> D3[NetZero 배출량 요청]
+D3 --> E3[internalProgressService.getNetZeroEmissionProgress]
+E3 --> F3[배출량 리스트 반환]
+F3 --> Z3((End))
 ```
-

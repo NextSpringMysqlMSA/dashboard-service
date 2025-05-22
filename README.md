@@ -1,3 +1,4 @@
+
 # 📊 ESG 통합 대시보드 API
 
 본 API는 TCFD, GRI, NetZero 영역별 진행률 및 배출량 정보를 제공하는 통합 ESG 대시보드를 위한 백엔드 API입니다.  
@@ -36,29 +37,6 @@ flowchart TD
     D1 --> E1[dashboardService.getTcfdProgress]
     E1 --> F1[진행률 반환]
     F1 --> Z1((End))
-<<<<<<< HEAD
-
-    %% GRI 진행률
-    C --> D2[GRI 진행률 요청]
-    D2 --> E2[dashboardService.getGriProgress]
-    E2 --> F2[진행률 반환]
-    F2 --> Z2((End))
-
-    %% NetZero 배출량
-    C --> D3[NetZero 배출량 요청]
-    D3 --> E3[dashboardService.getNetZeroEmissionProgress]
-    E3 --> F3[배출량 리스트 반환]
-    F3 --> Z3((End))
-
-    %% 색상 스타일 정의
-    classDef forest fill:#e6f4ea,stroke:#2e7d32,stroke-width:1.5px,color:#2e7d32;
-    classDef terminal fill:#d0f0c0,stroke:#1b5e20,color:#1b5e20;
-
-    %% 클래스 적용
-    class A,Z1,Z2,Z3 terminal;
-    class B,C,D1,D2,D3,E1,E2,E3,F1,F2,F3 forest;
-```
-=======
 
     %% GRI 진행률
     C --> D2[GRI 진행률 요청]
@@ -105,3 +83,5 @@ flowchart TD
 * Scope 3 배출량 연동 및 온실가스 통합 뷰 제공
 * 진행률 변화 알림 및 Slack/Webhook 연동
 * ESG 등급 자동 계산 및 개선 가이드 제공
+
+
